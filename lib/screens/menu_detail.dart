@@ -33,6 +33,7 @@ class _MenuDetailState extends State<MenuDetail> {
   List<OptionsModel> options = [];
   List<SelectedModel> selectedlist = [];
   double totalPrice = 0;
+  int num=0;
   Future<void> readJson() async {
     final String respones =
         await rootBundle.loadString("json_data/option.json");
@@ -369,39 +370,54 @@ class _MenuDetailState extends State<MenuDetail> {
                                               : Container(),
                                           Row(
                                             children: [
-                                              Container(
-                                                height: 30,
-                                                width: 30,
-                                                decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    border: Border.all(
-                                                        color:
-                                                            Color(0xff999999))),
-                                                child: Center(
-                                                    child: Icon(Icons.remove)),
+                                              GestureDetector(
+                                                onTap: (){
+                                                  num==0?num=0:num--;
+                                                  setState(() {
+
+                                                  });
+                                                },
+                                                child: Container(
+                                                  height: 30,
+                                                  width: 30,
+                                                  decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      border: Border.all(
+                                                          color:
+                                                              Color(0xff999999))),
+                                                  child: Center(
+                                                      child: Icon(Icons.remove)),
+                                                ),
                                               ),
                                               Padding(
                                                 padding:
                                                     const EdgeInsets.fromLTRB(
                                                         8, 0, 8, 0),
                                                 child: Text(
-                                                  "1",
+                                                  num.toString(),
                                                   style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.w500,
                                                       fontSize: 20),
                                                 ),
                                               ),
-                                              Container(
-                                                height: 30,
-                                                width: 30,
-                                                decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    border: Border.all(
-                                                        color:
-                                                            Color(0xff999999))),
-                                                child: Center(
-                                                    child: Icon(Icons.add)),
+                                              GestureDetector(
+                                                onTap: (){
+                                                  setState(() {
+                                                    num++;
+                                                  });
+                                                },
+                                                child: Container(
+                                                  height: 30,
+                                                  width: 30,
+                                                  decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      border: Border.all(
+                                                          color:
+                                                              Color(0xff999999))),
+                                                  child: Center(
+                                                      child: Icon(Icons.add)),
+                                                ),
                                               ),
                                               SizedBox(
                                                 width: 25,
