@@ -4,7 +4,8 @@
 
 import 'dart:convert';
 
-OptionsModel optionsModelFromJson(String str) => OptionsModel.fromJson(json.decode(str));
+OptionsModel optionsModelFromJson(String str) =>
+    OptionsModel.fromJson(json.decode(str));
 
 String optionsModelToJson(OptionsModel data) => json.encode(data.toJson());
 
@@ -15,19 +16,18 @@ class OptionsModel {
 
   OptionsModel({
     required this.title,
-
     required this.items,
   });
 
   factory OptionsModel.fromJson(Map<String, dynamic> json) => OptionsModel(
-    title: json["title"],
-    items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
-  );
+        title: json["title"],
+        items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
+      );
 
   Map<String, dynamic> toJson() => {
-    "title": title,
-    "items": List<dynamic>.from(items.map((x) => x.toJson())),
-  };
+        "title": title,
+        "items": List<dynamic>.from(items.map((x) => x.toJson())),
+      };
 }
 
 class Item {
@@ -42,15 +42,15 @@ class Item {
   });
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
-    text: json["text"],
-    price: json["price"],
-    selected: false,
-  );
+        text: json["text"],
+        price: json["price"],
+        selected: false,
+      );
 
   Map<String, dynamic> toJson() => {
-    "text": text,
-    "price": price,
-  };
+        "text": text,
+        "price": price,
+      };
 }
 
 class SelectedModel {
@@ -64,4 +64,5 @@ class SelectedModel {
     required this.id,
     required this.title,
     required this.price,
-  });}
+  });
+}

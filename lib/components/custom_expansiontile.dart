@@ -1,9 +1,4 @@
-
 import 'package:flutter/material.dart';
-
-
-
-
 
 class CustomExpansionListTile extends StatefulWidget {
   final Widget title;
@@ -13,18 +8,17 @@ class CustomExpansionListTile extends StatefulWidget {
 
   // final bool isExpand;
 
-
   CustomExpansionListTile({
     super.key,
     required this.title,
     required this.expandedChild,
     required this.titleBgColor,
     required this.descriptionBgColor,
-
   });
 
   @override
-  _CustomExpansionListTileState createState() => _CustomExpansionListTileState();
+  _CustomExpansionListTileState createState() =>
+      _CustomExpansionListTileState();
 }
 
 class _CustomExpansionListTileState extends State<CustomExpansionListTile>
@@ -52,6 +46,7 @@ class _CustomExpansionListTileState extends State<CustomExpansionListTile>
     _animationController.dispose();
     super.dispose();
   }
+
   void expanded() {
     setState(() {
       _isExpanded = !_isExpanded;
@@ -62,6 +57,7 @@ class _CustomExpansionListTileState extends State<CustomExpansionListTile>
       }
     });
   }
+
   void _toggleExpansion() {
     setState(() {
       _isExpanded = !_isExpanded;
@@ -74,14 +70,13 @@ class _CustomExpansionListTileState extends State<CustomExpansionListTile>
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         Container(
           color: widget.titleBgColor,
-          height: 40,// Set the title background color
+          height: 40, // Set the title background color
           child: ListTile(
-
             title: Stack(children: [
               widget.title,
               Row(
@@ -89,33 +84,34 @@ class _CustomExpansionListTileState extends State<CustomExpansionListTile>
                 children: [
                   Column(
                     children: [
-                       !_isExpanded
-                            ?  Icon(
-                          Icons.keyboard_arrow_down,
-                          size: 25,
-                          color: Colors.white,
-                        )
-                            :  Icon(Icons.keyboard_arrow_right, size: 25,color: Colors.white,),
-
+                      !_isExpanded
+                          ? Icon(
+                              Icons.keyboard_arrow_down,
+                              size: 25,
+                              color: Colors.white,
+                            )
+                          : Icon(
+                              Icons.keyboard_arrow_right,
+                              size: 25,
+                              color: Colors.white,
+                            ),
                     ],
                   ),
                 ],
               )
             ]),
             //onTap:widget.isTap? _toggleExpansion:null,
-            onTap:_toggleExpansion,
+            onTap: _toggleExpansion,
           ),
         ),
         Container(
           color:
-          widget.descriptionBgColor, // Set the description background color
+              widget.descriptionBgColor, // Set the description background color
           child: SizeTransition(
             sizeFactor: _animation,
             child: widget.expandedChild,
           ),
-
         ),
-
       ],
     );
   }

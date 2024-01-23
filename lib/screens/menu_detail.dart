@@ -32,7 +32,7 @@ class MenuDetail extends StatefulWidget {
 class _MenuDetailState extends State<MenuDetail> {
   List<OptionsModel> options = [];
   List<SelectedModel> selectedlist = [];
-  double totalPrice=0;
+  double totalPrice = 0;
   Future<void> readJson() async {
     final String respones =
         await rootBundle.loadString("json_data/option.json");
@@ -68,11 +68,17 @@ class _MenuDetailState extends State<MenuDetail> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text("MENU",style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 16,color: Color(0xff999999),
-                      ),),
-                      SizedBox(height: 20,),
+                      Text(
+                        "MENU",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 16,
+                          color: Color(0xff999999),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Image(
                         image: AssetImage("assets/Logo.png"),
                         height: h * 0.25,
@@ -80,50 +86,52 @@ class _MenuDetailState extends State<MenuDetail> {
                       SizedBox(
                         height: h * 0.03,
                       ),
-                      isMobile?Container():Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          MyHoverWidget(
-                            text: "ORDER ONLINE",
-                          ),
-                          SizedBox(
-                            width: w * 0.02,
-                          ),
-                          MyHoverWidget(
-                            text: "CATERING",
-                          ),
-                          SizedBox(
-                            width: w * 0.02,
-                          ),
-                          MyHoverWidget(
-                            text: "OUR MENU",
-                          ),
-                          SizedBox(
-                            width: w * 0.02,
-                          ),
-                          MyHoverWidget(
-                            text: "OUR JOURNEY",
-                          ),
-                          SizedBox(
-                            width: w * 0.02,
-                          ),
-                          MyHoverWidget(
-                            text: "WORK HERE",
-                          ),
-                          SizedBox(
-                            width: w * 0.02,
-                          ),
-                          MyHoverWidget(
-                            text: "GIFT CARDS",
-                          ),
-                          SizedBox(
-                            width: w * 0.02,
-                          ),
-                          MyHoverWidget(
-                            text: "LOCATIONS",
-                          ),
-                        ],
-                      )
+                      isMobile
+                          ? Container()
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                MyHoverWidget(
+                                  text: "ORDER ONLINE",
+                                ),
+                                SizedBox(
+                                  width: w * 0.02,
+                                ),
+                                MyHoverWidget(
+                                  text: "CATERING",
+                                ),
+                                SizedBox(
+                                  width: w * 0.02,
+                                ),
+                                MyHoverWidget(
+                                  text: "OUR MENU",
+                                ),
+                                SizedBox(
+                                  width: w * 0.02,
+                                ),
+                                MyHoverWidget(
+                                  text: "OUR JOURNEY",
+                                ),
+                                SizedBox(
+                                  width: w * 0.02,
+                                ),
+                                MyHoverWidget(
+                                  text: "WORK HERE",
+                                ),
+                                SizedBox(
+                                  width: w * 0.02,
+                                ),
+                                MyHoverWidget(
+                                  text: "GIFT CARDS",
+                                ),
+                                SizedBox(
+                                  width: w * 0.02,
+                                ),
+                                MyHoverWidget(
+                                  text: "LOCATIONS",
+                                ),
+                              ],
+                            )
                     ])),
             Stack(children: [
               Column(children: [
@@ -140,7 +148,11 @@ class _MenuDetailState extends State<MenuDetail> {
                 padding: const EdgeInsets.only(top: 100.0),
                 child: Center(
                   child: Container(
-                    width:w<600 ? w :w<990?w:1180,
+                    width: w < 600
+                        ? w
+                        : w < 990
+                            ? w
+                            : 1180,
                     color: Colors.white,
                     child: Column(
                       children: [
@@ -167,7 +179,7 @@ class _MenuDetailState extends State<MenuDetail> {
                                 ],
                               ),
                               GestureDetector(
-                                onTap: (){
+                                onTap: () {
                                   Navigator.pop(context);
                                 },
                                 child: HoverContainer(
@@ -197,8 +209,8 @@ class _MenuDetailState extends State<MenuDetail> {
                                               width: 1.0,
                                             ),
                                           )),
-                                      height: h+300,
-                                      width: isMobile?w*0.9:430,
+                                      height: h + 300,
+                                      width: isMobile ? w * 0.9 : 430,
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -290,7 +302,16 @@ class _MenuDetailState extends State<MenuDetail> {
                                               ],
                                             ),
                                           ),
-                                          selectedlist.length!=0?Text("${selectedlist.length} Selection",style:TextStyle(fontSize: 15,fontWeight: FontWeight.w700, color: Colors.black),):Container(),
+                                          selectedlist.length != 0
+                                              ? Text(
+                                                  "${selectedlist.length} Selection",
+                                                  style: TextStyle(
+                                                      fontSize: 15,
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                      color: Colors.black),
+                                                )
+                                              : Container(),
                                           Padding(
                                             padding: const EdgeInsets.fromLTRB(
                                                 10, 10, 0, 10),
@@ -304,23 +325,48 @@ class _MenuDetailState extends State<MenuDetail> {
                                             children: [
                                               Container(
                                                 width: 430,
-                                                child:  Wrap(
+                                                child: Wrap(
                                                     runSpacing: 10,
                                                     spacing: 3,
                                                     alignment:
-                                                    WrapAlignment.center,
+                                                        WrapAlignment.center,
                                                     children: List.generate(
-                                                        selectedlist.length, (index) {
-                                                      return selectedlist[index].price!=0?HoverContainerWithSize(text: selectedlist[index].text+ "\$ ${selectedlist[index].price}", title: selectedlist[index].title,):HoverContainerWithSize(text: selectedlist[index].text, title: selectedlist[index].title,);
+                                                        selectedlist.length,
+                                                        (index) {
+                                                      return selectedlist[index]
+                                                                  .price !=
+                                                              0
+                                                          ? HoverContainerWithSize(
+                                                              text: selectedlist[
+                                                                          index]
+                                                                      .text +
+                                                                  "\$ ${selectedlist[index].price}",
+                                                              title:
+                                                                  selectedlist[
+                                                                          index]
+                                                                      .title,
+                                                            )
+                                                          : HoverContainerWithSize(
+                                                              text:
+                                                                  selectedlist[
+                                                                          index]
+                                                                      .text,
+                                                              title:
+                                                                  selectedlist[
+                                                                          index]
+                                                                      .title,
+                                                            );
                                                     })),
                                               ),
                                             ],
                                           ),
-                                          selectedlist.length!= 0?Divider(
-                                            height: 1,
-                                            color: Color(0xff616161)
-                                                .withOpacity(.3),
-                                          ):Container(),
+                                          selectedlist.length != 0
+                                              ? Divider(
+                                                  height: 1,
+                                                  color: Color(0xff616161)
+                                                      .withOpacity(.3),
+                                                )
+                                              : Container(),
                                           Row(
                                             children: [
                                               Container(
@@ -378,7 +424,7 @@ class _MenuDetailState extends State<MenuDetail> {
                                                       width: w * 0.01,
                                                     ),
                                                     Text(
-                                                      "Add to bag \$${double.parse(widget.price)+totalPrice}",
+                                                      "Add to bag \$${double.parse(widget.price) + totalPrice}",
                                                       style: TextStyle(
                                                         color: Colors.white,
                                                       ),
@@ -391,157 +437,220 @@ class _MenuDetailState extends State<MenuDetail> {
                                           SizedBox(
                                             height: 10,
                                           ),
-                                          isMobile? Expanded(
+                                          isMobile
+                                              ? Expanded(
+                                                  child: Container(
+                                                      alignment:
+                                                          AlignmentDirectional
+                                                              .topStart,
+                                                      child: ListView.builder(
+                                                        shrinkWrap: true,
+                                                        itemCount:
+                                                            options.length,
+                                                        itemBuilder:
+                                                            (context, i) =>
+                                                                Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .fromLTRB(10,
+                                                                  10, 10, 0),
+                                                          child:
+                                                              CustomExpansionListTile(
+                                                            title: Text(
+                                                              options[i].title,
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .white),
+                                                            ),
+                                                            expandedChild:
+                                                                Container(
+                                                              child: Wrap(
+                                                                  runSpacing:
+                                                                      10,
+                                                                  spacing: 3,
+                                                                  alignment:
+                                                                      WrapAlignment
+                                                                          .center,
+                                                                  children: List.generate(
+                                                                      options[i]
+                                                                          .items
+                                                                          .length,
+                                                                      (index) {
+                                                                    return GestureDetector(
+                                                                      onTap:
+                                                                          () {
+                                                                        if (options[i].items[index].selected ==
+                                                                            true) {
+                                                                          options[i]
+                                                                              .items[index]
+                                                                              .selected = false;
+                                                                          selectedlist.removeWhere((item) =>
+                                                                              item.id ==
+                                                                              i + index);
+                                                                          setState(
+                                                                              () {
+                                                                            totalPrice =
+                                                                                selectedlist.fold(0, (sum, item) => sum + item.price);
+                                                                          });
+                                                                        } else {
+                                                                          options[i]
+                                                                              .items[index]
+                                                                              .selected = true;
+                                                                          selectedlist.add(SelectedModel(
+                                                                              text: options[i].items[index].text,
+                                                                              id: i + index,
+                                                                              title: options[i].title,
+                                                                              price: double.parse(options[i].items[index].price == "" ? "0" : options[i].items[index].price)));
+                                                                          setState(
+                                                                              () {
+                                                                            totalPrice =
+                                                                                selectedlist.fold(0, (sum, item) => sum + item.price);
+                                                                          });
+                                                                        }
+                                                                      },
+                                                                      child:
+                                                                          CustomContainer(
+                                                                        text: options[i]
+                                                                            .items[index]
+                                                                            .text,
+                                                                        price: options[i]
+                                                                            .items[index]
+                                                                            .price,
+                                                                        selected: options[i]
+                                                                            .items[index]
+                                                                            .selected,
+                                                                      ),
+                                                                    );
+                                                                  })),
+                                                            ),
+                                                            titleBgColor: Color(
+                                                                0xffa96d93),
+                                                            descriptionBgColor:
+                                                                Colors.white,
+                                                          ),
+                                                        ),
+                                                      )),
+                                                )
+                                              : Container(),
+                                        ],
+                                      ),
+                                    ),
+                                    isDesktop
+                                        ? Expanded(
                                             child: Container(
-                                                alignment:
-                                                AlignmentDirectional.topStart,
+                                                alignment: AlignmentDirectional
+                                                    .topStart,
                                                 child: ListView.builder(
+                                                  physics:
+                                                      NeverScrollableScrollPhysics(),
                                                   shrinkWrap: true,
                                                   itemCount: options.length,
                                                   itemBuilder: (context, i) =>
                                                       Padding(
-                                                        padding:
-                                                        const EdgeInsets.fromLTRB(
-                                                            10, 10, 10, 0),
-                                                        child: CustomExpansionListTile(
-                                                          title: Text(
-                                                            options[i].title,
-                                                            style: TextStyle(
-                                                                color: Colors.white),
-                                                          ),
-                                                          expandedChild: Container(
-                                                            child: Wrap(
-                                                                runSpacing: 10,
-                                                                spacing: 3,
-                                                                alignment:
-                                                                WrapAlignment.center,
-                                                                children: List.generate(
+                                                    padding: const EdgeInsets
+                                                        .fromLTRB(
+                                                        10, 10, 10, 0),
+                                                    child:
+                                                        CustomExpansionListTile(
+                                                      title: Text(
+                                                        options[i].title,
+                                                        style: TextStyle(
+                                                            color:
+                                                                Colors.white),
+                                                      ),
+                                                      expandedChild: Container(
+                                                        child: Wrap(
+                                                            runSpacing: 10,
+                                                            spacing: 3,
+                                                            alignment:
+                                                                WrapAlignment
+                                                                    .center,
+                                                            children:
+                                                                List.generate(
                                                                     options[i]
                                                                         .items
-                                                                        .length, (index) {
-                                                                  return GestureDetector(
-                                                                    onTap: (){
-                                                                      if(options[i]
-                                                                          .items[index]
-                                                                          .selected==true) {
-                                                                        options[i]
-                                                                            .items[index]
-                                                                            .selected = false;
-                                                                        selectedlist.removeWhere((item) => item.id == i+index);
-                                                                        setState(() {
-                                                                          totalPrice = selectedlist.fold(0, (sum, item) => sum + item.price);
-
-                                                                        });
-                                                                      }else{
-                                                                        options[i]
-                                                                            .items[index]
-                                                                            .selected = true;
-                                                                        selectedlist.add(SelectedModel(text: options[i]
-                                                                            .items[index].text, id: i+index, title:  options[i].title, price: double.parse( options[i].items[index].price==""?"0":  options[i].items[index].price)));
-                                                                        setState(() {
-
-                                                                          totalPrice = selectedlist.fold(0, (sum, item) => sum + item.price);
-
-                                                                        });
-                                                                      }
-                                                                    },
-                                                                    child: CustomContainer(
-                                                                      text: options[i]
-                                                                          .items[index]
-                                                                          .text,
-                                                                      price: options[i]
-                                                                          .items[index]
-                                                                          .price, selected:  options[i]
-                                                                        .items[index]
-                                                                        .selected ,),
-                                                                  );
-                                                                })),
-                                                          ),
-                                                          titleBgColor: Color(0xffa96d93),
-                                                          descriptionBgColor:
-                                                          Colors.white,
-                                                        ),
+                                                                        .length,
+                                                                    (index) {
+                                                              return GestureDetector(
+                                                                onTap: () {
+                                                                  if (options[i]
+                                                                          .items[
+                                                                              index]
+                                                                          .selected ==
+                                                                      true) {
+                                                                    options[i]
+                                                                        .items[
+                                                                            index]
+                                                                        .selected = false;
+                                                                    selectedlist.removeWhere((item) =>
+                                                                        item.id ==
+                                                                        i + index);
+                                                                    setState(
+                                                                        () {
+                                                                      totalPrice = selectedlist.fold(
+                                                                          0,
+                                                                          (sum, item) =>
+                                                                              sum +
+                                                                              item.price);
+                                                                    });
+                                                                  } else {
+                                                                    options[i]
+                                                                        .items[
+                                                                            index]
+                                                                        .selected = true;
+                                                                    selectedlist.add(SelectedModel(
+                                                                        text: options[i]
+                                                                            .items[
+                                                                                index]
+                                                                            .text,
+                                                                        id: i +
+                                                                            index,
+                                                                        title: options[i]
+                                                                            .title,
+                                                                        price: double.parse(options[i].items[index].price ==
+                                                                                ""
+                                                                            ? "0"
+                                                                            : options[i].items[index].price)));
+                                                                    setState(
+                                                                        () {
+                                                                      totalPrice = selectedlist.fold(
+                                                                          0,
+                                                                          (sum, item) =>
+                                                                              sum +
+                                                                              item.price);
+                                                                    });
+                                                                  }
+                                                                },
+                                                                child:
+                                                                    CustomContainer(
+                                                                  text: options[
+                                                                          i]
+                                                                      .items[
+                                                                          index]
+                                                                      .text,
+                                                                  price: options[
+                                                                          i]
+                                                                      .items[
+                                                                          index]
+                                                                      .price,
+                                                                  selected: options[
+                                                                          i]
+                                                                      .items[
+                                                                          index]
+                                                                      .selected,
+                                                                ),
+                                                              );
+                                                            })),
                                                       ),
+                                                      titleBgColor:
+                                                          Color(0xffa96d93),
+                                                      descriptionBgColor:
+                                                          Colors.white,
+                                                    ),
+                                                  ),
                                                 )),
-                                          ):Container(),
-
-                                        ],
-                                      ),
-                                    ),
-                                  isDesktop?  Expanded(
-                                      child: Container(
-                                          alignment:
-                                              AlignmentDirectional.topStart,
-                                          child: ListView.builder(
-                                            physics: NeverScrollableScrollPhysics(),
-                                            shrinkWrap: true,
-                                            itemCount: options.length,
-                                            itemBuilder: (context, i) =>
-                                                Padding(
-                                              padding:
-                                                  const EdgeInsets.fromLTRB(
-                                                      10, 10, 10, 0),
-                                              child: CustomExpansionListTile(
-                                                title: Text(
-                                                  options[i].title,
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                ),
-                                                expandedChild: Container(
-                                                  child: Wrap(
-                                                      runSpacing: 10,
-                                                      spacing: 3,
-                                                      alignment:
-                                                          WrapAlignment.center,
-                                                      children: List.generate(
-                                                          options[i]
-                                                              .items
-                                                              .length, (index) {
-                                                        return GestureDetector(
-                                                          onTap: (){
-                                                           if(options[i]
-                                                               .items[index]
-                                                               .selected==true) {
-                                                              options[i]
-                                                                  .items[index]
-                                                                  .selected = false;
-                                                              selectedlist.removeWhere((item) => item.id == i+index);
-                                                              setState(() {
-                                                                totalPrice = selectedlist.fold(0, (sum, item) => sum + item.price);
-
-                                                              });
-                                                            }else{
-                                                             options[i]
-                                                                 .items[index]
-                                                                 .selected = true;
-                                                             selectedlist.add(SelectedModel(text: options[i]
-                                                                 .items[index].text, id: i+index, title:  options[i].title, price: double.parse( options[i].items[index].price==""?"0":  options[i].items[index].price)));
-                                                             setState(() {
-
-                                                                totalPrice = selectedlist.fold(0, (sum, item) => sum + item.price);
-
-                                                             });
-                                                           }
-                                                          },
-                                                          child: CustomContainer(
-                                                              text: options[i]
-                                                                  .items[index]
-                                                                  .text,
-                                                              price: options[i]
-                                                                  .items[index]
-                                                                  .price, selected:  options[i]
-                                                              .items[index]
-                                                              .selected ,),
-                                                        );
-                                                      })),
-                                                ),
-                                                titleBgColor: Color(0xffa96d93),
-                                                descriptionBgColor:
-                                                    Colors.white,
-                                              ),
-                                            ),
-                                          )),
-                                    ):Container()
+                                          )
+                                        : Container()
                                   ],
                                 )
                               ],
@@ -559,14 +668,14 @@ class _MenuDetailState extends State<MenuDetail> {
                               "QUESTION ABOUT A DELIVERY ORDER? ",
                               style: TextStyle(
                                   color: Color(0xff616161),
-                                  fontSize:isMobile?9: 13,
+                                  fontSize: isMobile ? 9 : 13,
                                   letterSpacing: 3),
                             ),
                             Text(
                               "CONTACT DOORDASH SUPPORT",
                               style: TextStyle(
                                   color: Color(0xfff09b3a),
-                                  fontSize:isMobile?9: 13,
+                                  fontSize: isMobile ? 9 : 13,
                                   letterSpacing: 3),
                             ),
                           ],
@@ -582,7 +691,7 @@ class _MenuDetailState extends State<MenuDetail> {
                               "PRESS INQUIRIES ",
                               style: TextStyle(
                                   color: Color(0xfff09b3a),
-                                  fontSize:isMobile?9: 13,
+                                  fontSize: isMobile ? 9 : 13,
                                   letterSpacing: 3),
                             ),
                             Container(
@@ -594,7 +703,7 @@ class _MenuDetailState extends State<MenuDetail> {
                               " ALL OTHER INQUIRIES ",
                               style: TextStyle(
                                   color: Color(0xfff09b3a),
-                                  fontSize:isMobile?9: 13,
+                                  fontSize: isMobile ? 9 : 13,
                                   letterSpacing: 3),
                             ),
                             Container(
@@ -606,7 +715,7 @@ class _MenuDetailState extends State<MenuDetail> {
                               " NUTRITION INFO",
                               style: TextStyle(
                                   color: Color(0xfff09b3a),
-                                  fontSize:isMobile?9: 13,
+                                  fontSize: isMobile ? 9 : 13,
                                   letterSpacing: 3),
                             ),
                           ],
@@ -647,12 +756,12 @@ class _MenuDetailState extends State<MenuDetail> {
                         ),
                         Center(
                             child: Text(
-                              "2023 LIFE ALIVE ORGANIC CAFE . ALL RIGHTS RESERVED",
-                              style: TextStyle(
-                                  color: Color(0xff616161),
-                                  fontSize:isMobile?9: 13,
-                                  letterSpacing: 3),
-                            )),
+                          "2023 LIFE ALIVE ORGANIC CAFE . ALL RIGHTS RESERVED",
+                          style: TextStyle(
+                              color: Color(0xff616161),
+                              fontSize: isMobile ? 9 : 13,
+                              letterSpacing: 3),
+                        )),
                         SizedBox(
                           height: 20,
                         ),
@@ -664,7 +773,7 @@ class _MenuDetailState extends State<MenuDetail> {
                               "TERMS & CONDITIONS ",
                               style: TextStyle(
                                   color: Color(0xfff09b3a),
-                                  fontSize:isMobile?9: 13,
+                                  fontSize: isMobile ? 9 : 13,
                                   letterSpacing: 3),
                             ),
                             Container(
@@ -676,7 +785,7 @@ class _MenuDetailState extends State<MenuDetail> {
                               " PRIVACY POLICY",
                               style: TextStyle(
                                   color: Color(0xfff09b3a),
-                                  fontSize:isMobile?9: 13,
+                                  fontSize: isMobile ? 9 : 13,
                                   letterSpacing: 3),
                             ),
                           ],

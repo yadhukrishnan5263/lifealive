@@ -20,16 +20,16 @@ class MenuModel {
   });
 
   factory MenuModel.fromJson(Map<String, dynamic> json) => MenuModel(
-    title: json["title"],
-    subtitle: json["subtitle"],
-    items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
-  );
+        title: json["title"],
+        subtitle: json["subtitle"],
+        items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
+      );
 
   Map<String, dynamic> toJson() => {
-    "title": title,
-    "subtitle": subtitle,
-    "items": List<dynamic>.from(items.map((x) => x.toJson())),
-  };
+        "title": title,
+        "subtitle": subtitle,
+        "items": List<dynamic>.from(items.map((x) => x.toJson())),
+      };
 }
 
 class Item {
@@ -48,18 +48,18 @@ class Item {
   });
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
-    dName: json["d_name"],
-    image: json["image"],
-    description: json["description"],
-    price: json["price"],
-    category: List<String>.from(json["category"].map((x) => x)),
-  );
+        dName: json["d_name"],
+        image: json["image"],
+        description: json["description"],
+        price: json["price"],
+        category: List<String>.from(json["category"].map((x) => x)),
+      );
 
   Map<String, dynamic> toJson() => {
-    "d_name": dName,
-    "image": image,
-    "description": description,
-    "price": price,
-    "category": List<dynamic>.from(category.map((x) => x)),
-  };
+        "d_name": dName,
+        "image": image,
+        "description": description,
+        "price": price,
+        "category": List<dynamic>.from(category.map((x) => x)),
+      };
 }

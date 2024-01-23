@@ -53,11 +53,17 @@ class _MenuPageState extends State<MenuPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text("MENU",style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 16,color: Color(0xff999999),
-                      ),),
-                      SizedBox(height: 20,),
+                      Text(
+                        "MENU",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 16,
+                          color: Color(0xff999999),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Image(
                         image: AssetImage("assets/Logo.png"),
                         height: h * 0.25,
@@ -127,7 +133,11 @@ class _MenuPageState extends State<MenuPage> {
                 padding: const EdgeInsets.only(top: 100.0),
                 child: Center(
                   child: Container(
-                    width: w<600 ? w :w<900?w: w * 0.65,
+                    width: w < 600
+                        ? w
+                        : w < 900
+                            ? w
+                            : w * 0.65,
                     color: Colors.white,
                     child: Column(
                       children: [
@@ -788,14 +798,14 @@ class _MenuPageState extends State<MenuPage> {
                                   "QUESTION ABOUT A DELIVERY ORDER? ",
                                   style: TextStyle(
                                       color: Color(0xff616161),
-                                      fontSize:isMobile?9: 13,
+                                      fontSize: isMobile ? 9 : 13,
                                       letterSpacing: 3),
                                 ),
                                 Text(
                                   "CONTACT DOORDASH  SUPPORT",
                                   style: TextStyle(
                                       color: Color(0xfff09b3a),
-                                      fontSize:isMobile?9: 13,
+                                      fontSize: isMobile ? 9 : 13,
                                       letterSpacing: 3),
                                 ),
                               ],
@@ -811,7 +821,7 @@ class _MenuPageState extends State<MenuPage> {
                                   "PRESS INQUIRIES ",
                                   style: TextStyle(
                                       color: Color(0xfff09b3a),
-                                      fontSize:isMobile?9: 13,
+                                      fontSize: isMobile ? 9 : 13,
                                       letterSpacing: 3),
                                 ),
                                 Container(
@@ -823,7 +833,7 @@ class _MenuPageState extends State<MenuPage> {
                                   " ALL OTHER INQUIRIES ",
                                   style: TextStyle(
                                       color: Color(0xfff09b3a),
-                                      fontSize:isMobile?9: 13,
+                                      fontSize: isMobile ? 9 : 13,
                                       letterSpacing: 3),
                                 ),
                                 Container(
@@ -835,7 +845,7 @@ class _MenuPageState extends State<MenuPage> {
                                   " NUTRITION INFO",
                                   style: TextStyle(
                                       color: Color(0xfff09b3a),
-                                      fontSize:isMobile?9: 13,
+                                      fontSize: isMobile ? 9 : 13,
                                       letterSpacing: 3),
                                 ),
                               ],
@@ -879,7 +889,7 @@ class _MenuPageState extends State<MenuPage> {
                               "2023 LIFE ALIVE ORGANIC CAFE . ALL RIGHTS RESERVED",
                               style: TextStyle(
                                   color: Color(0xff616161),
-                                  fontSize:isMobile?9: 13,
+                                  fontSize: isMobile ? 9 : 13,
                                   letterSpacing: 3),
                             )),
                             SizedBox(
@@ -893,7 +903,7 @@ class _MenuPageState extends State<MenuPage> {
                                   "TERMS & CONDITIONS ",
                                   style: TextStyle(
                                       color: Color(0xfff09b3a),
-                                      fontSize:isMobile?9: 13,
+                                      fontSize: isMobile ? 9 : 13,
                                       letterSpacing: 3),
                                 ),
                                 Container(
@@ -905,7 +915,7 @@ class _MenuPageState extends State<MenuPage> {
                                   " PRIVACY POLICY",
                                   style: TextStyle(
                                       color: Color(0xfff09b3a),
-                                      fontSize:isMobile?9: 13,
+                                      fontSize: isMobile ? 9 : 13,
                                       letterSpacing: 3),
                                 ),
                               ],
