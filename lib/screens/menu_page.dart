@@ -664,116 +664,134 @@ class _MenuPageState extends State<MenuPage> {
                                                 ],
                                                 color: Colors.white,
                                               ),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                              child: Stack(
                                                 children: [
-                                                  Container(
-                                                    height: 318,
-                                                    width: 318,
-                                                    decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.only(
-                                                              topLeft: Radius
-                                                                  .circular(10),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      10)),
-                                                      image: DecorationImage(
-                                                          image: AssetImage(
-                                                              items[i]
-                                                                  .items[index]
-                                                                  .image),
-                                                          fit: BoxFit.cover),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: const EdgeInsets
-                                                        .fromLTRB(
-                                                        10, 20, 10, 5),
-                                                    child: Text(
-                                                        items[i]
-                                                            .items[index]
-                                                            .dName,
-                                                        style: TextStyle(
-                                                            fontSize: 14,
-                                                            color: Color(
-                                                                0xffa96d93),
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w500)),
-                                                  ),
-                                                  Padding(
-                                                    padding: const EdgeInsets
-                                                        .fromLTRB(10, 0, 0, 20),
-                                                    child: Text(
-                                                        items[i]
-                                                            .items[index]
-                                                            .description,
-                                                        maxLines: 4,
-                                                        style: TextStyle(
-                                                            fontSize: 13,
-                                                            overflow:
-                                                                TextOverflow
-                                                                    .clip,
-                                                            color: Color(
-                                                                    0xff616161)
-                                                                .withOpacity(
-                                                                    .5))),
-                                                  ),
-                                                  Spacer(),
-                                                  Padding(
-                                                    padding: const EdgeInsets
-                                                        .fromLTRB(
-                                                        10, 0, 10, 15),
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: <Widget>[
-                                                        Text(
-                                                            "\$${items[i].items[index].price}",
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.start,
+                                                    children: [
+                                                      Container(
+                                                        height: 318,
+                                                        width: 318,
+                                                        decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                                  topLeft: Radius
+                                                                      .circular(10),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          10)),
+                                                          image: DecorationImage(
+                                                              image: AssetImage(
+                                                                  items[i]
+                                                                      .items[index]
+                                                                      .image),
+                                                              fit: BoxFit.cover),
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding: const EdgeInsets
+                                                            .fromLTRB(
+                                                            10, 20, 10, 5),
+                                                        child: Text(
+                                                            items[i]
+                                                                .items[index]
+                                                                .dName,
                                                             style: TextStyle(
-                                                                fontSize: 15,
+                                                                fontSize: 14,
                                                                 color: Color(
                                                                     0xffa96d93),
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .w900)),
-                                                        Row(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .center,
-                                                            children:
-                                                                List.generate(
-                                                                    items[i]
-                                                                        .items[
-                                                                            index]
-                                                                        .category
-                                                                        .length,
-                                                                    (j) =>
-                                                                        Padding(
-                                                                          padding: const EdgeInsets
-                                                                              .fromLTRB(
-                                                                              5,
-                                                                              0,
-                                                                              0,
-                                                                              0),
-                                                                          child:
-                                                                              Center(
-                                                                            child:
-                                                                                Container(
-                                                                              height: 25,
-                                                                              width: 25,
-                                                                              decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: Color(0xff999999))),
-                                                                              child: Center(child: Text(items[i].items[index].category[j], style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.black))),
-                                                                            ),
-                                                                          ),
-                                                                        ))),
-                                                      ],
+                                                                        .w500)),
+                                                      ),
+                                                      Padding(
+                                                        padding: const EdgeInsets
+                                                            .fromLTRB(10, 0, 0, 20),
+                                                        child: Text(
+                                                            items[i]
+                                                                .items[index]
+                                                                .description,
+                                                            maxLines: 4,
+                                                            style: TextStyle(
+                                                                fontSize: 13,
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .clip,
+                                                                color: Color(
+                                                                        0xff616161)
+                                                                    .withOpacity(
+                                                                        .5))),
+                                                      ),
+                                                      Spacer(),
+                                                      Padding(
+                                                        padding: const EdgeInsets
+                                                            .fromLTRB(
+                                                            10, 0, 10, 15),
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          children: <Widget>[
+                                                            Text(
+                                                                "\$${items[i].items[index].price}",
+                                                                style: TextStyle(
+                                                                    fontSize: 15,
+                                                                    color: Color(
+                                                                        0xffa96d93),
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w900)),
+                                                            Row(
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                children:
+                                                                    List.generate(
+                                                                        items[i]
+                                                                            .items[
+                                                                                index]
+                                                                            .category
+                                                                            .length,
+                                                                        (j) =>
+                                                                            Padding(
+                                                                              padding: const EdgeInsets
+                                                                                  .fromLTRB(
+                                                                                  5,
+                                                                                  0,
+                                                                                  0,
+                                                                                  0),
+                                                                              child:
+                                                                                  Center(
+                                                                                child:
+                                                                                    Container(
+                                                                                  height: 25,
+                                                                                  width: 25,
+                                                                                  decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: Color(0xff999999))),
+                                                                                  child: Center(child: Text(items[i].items[index].category[j], style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.black))),
+                                                                                ),
+                                                                              ),
+                                                                            ))),
+                                                          ],
+                                                        ),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  Positioned(
+                                                    right: 10,
+                                                    bottom: 200,
+                                                    child: Container(
+                                                      height: 35,
+                                                        width: 35,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Color(0xffdd7871)
+
+                                                    ),
+                                                      child: Icon(Icons.add),
                                                     ),
                                                   )
                                                 ],
